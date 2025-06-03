@@ -3,4 +3,16 @@
 // Example: groupByAge([{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }, { name: "Charlie", age: 30 }])
 // should return { 25: [{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }], 30: [{ name: "Charlie", age: 30 }] }.
 
+function groupByAge(people){
+    return people.reduce((group, person) =>{
+        if(!group[person.age]){
+            group[person.age] = []
+        }
+        group[person.age].push(person)
+        return group
+    },{})
+}
+
+
+
 console.log(groupByAge([{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }, { name: "Charlie", age: 30 }])); // Expected output: { 25: [{ name: "Alice", age: 25 }, { name: "Bob", age: 25 }], 30: [{ name: "Charlie", age: 30 }] }
